@@ -46,7 +46,8 @@ else:
         # Break the loop when 'q' key is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
+        if cv2.waitKey(1) & 0xFF == ord(' '):
+            cv2.imgwrite("img_udst.png", undistorted_frame)
     # Release the capture and close windows
     cap.release()
     cv2.destroyAllWindows()
