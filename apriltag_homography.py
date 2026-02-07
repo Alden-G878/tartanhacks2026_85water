@@ -1,6 +1,7 @@
 import cv2
 import apriltag
 import numpy as np
+import sys
 
 def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixels=200):
     """
@@ -69,3 +70,6 @@ def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixe
 # Example Usage:
 # Replace 'your_image.jpg' with the path to your image containing an AprilTag.
 # You can find sample tags on the [AprilRobotics GitHub](
+if __name__ == '__main__':
+    for p in sys.argv[1:]:
+        rectify_image_with_apriltag(p)
