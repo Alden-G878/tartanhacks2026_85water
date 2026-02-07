@@ -6,15 +6,16 @@ import numpy as np
 # the fisheye model typically uses cv2.fisheye.estimateNewCameraMatrixForUndistort
 # or directly undistort with scaling/cropping options.
 # For simplicity here, we'll use a standard approach for the new matrix.
-def capture_and_undistort(img_name):
-    K = XXX
-    D = XXX
+# DIM=(640, 480)
+def capture_and_undestort(img_name):
+    K=np.array([[459.50075535511127, 0.0, 315.4093020757232], [0.0, 456.5667192722284, 232.44968716323072], [0.0, 0.0, 1.0]])
+    D=np.array([[-0.11675163361043045], [0.07398723179179927], [-0.01466585277138975], [-0.047624989531767185]])
     img_width, img_height = 640, 480 # Must match the resolution used in calibration
-    
+
     # You can adjust 'balance' from 0.0 (maximum zoom/crop) to 1.0 (keep all pixels, but might show black borders)
     balance = 0.5 
     new_K = cv2.fisheye.estimateNewCameraMatrixForUndistortRectify(K, D, (img_width, img_height), np.eye(3), balance)
-    
+
     # --- 2. Setup Video Capture and Stream ---
     
     # Open the default camera (change 0 to the correct index if you have multiple cameras)
@@ -54,6 +55,7 @@ def capture_and_undistort(img_name):
             #    print("saved frame to img_udst.png")
             cv2.imwrite(img_name, undistorted_frame)
             print(f"Wrote undistorted image to {img_name}")
+            break;
         # Release the capture and close windows
         cap.release()
         cv2.destroyAllWindows()
