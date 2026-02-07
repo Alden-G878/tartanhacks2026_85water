@@ -1,3 +1,7 @@
+import numpy as np
+import sys
+import cv2
+
 # You should replace these 3 lines with the output in calibration step
 DIM=XXX
 K=np.array(YYY)

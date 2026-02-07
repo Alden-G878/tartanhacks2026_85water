@@ -14,6 +14,8 @@ if not cap.isOpened():
     exit()
 
 img_counter = 0
+while os.path.isfile(f"calib_img/opencv_frame_{img_counter}.png"):
+    img_counter++
 
 while True:
     # Read a frame from the stream
