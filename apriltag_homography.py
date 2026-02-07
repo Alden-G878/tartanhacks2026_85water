@@ -71,7 +71,7 @@ def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixe
     # 5. Display or Save the Results
     cv2.imshow("Original Image", image)
     cv2.imshow("Rectified Image", rectified_image)
-    cv2.imwrite("rectified_image.jpg", rectified_image)
+    cv2.imwrite("rectified_image.png", rectified_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
