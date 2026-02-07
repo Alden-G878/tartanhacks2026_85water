@@ -3,13 +3,18 @@ import not_slop
 import camera_undistort_and_rectify
 import asyncio
 import detect_color
-
+import IK2
+robot_arm = IK2.RobotArmIK()
+robot_arm.set_servo_calibration("joint1", 45.0, 1)
+robot_arm.set_servo_calibration("joint2", 45.0, 1)
+robot_arm.set_servo_calibration("joint3", 0.0, 1)
+robot_arm.set_servo_calibration("joint4", 45.0, 1)
 # get user voice input
 usr_txt = internal_speech.get_speech()
 # get confirmation input is correct
 resp = -1
 if(usr_txt!=None):
-    print("Did you say {usr_txt}?")
+    print(f"Did you say {usr_txt}?")
     print("1: yes")
     print("2: no")
     resp = input()
@@ -35,7 +40,7 @@ if "blue" in ai_resp:
 camera_undistort_and_rectify.unr()
 # analyze for the colors
 x, y = detect_color.find_src(red, green, blue)
-
+robot_arm.inverse_kinematics(x, y, 0)
 # depending on the selected color and destination, have commands
 # move to src
 # grab
