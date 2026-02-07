@@ -10,9 +10,8 @@ class Command(BaseModel):
     Source: Literal["red box", "blue box", "green box"]
     Destination: Literal["lower left corner", "lower right corner", "upper left corner", "upper right corner"]
 
-async def main():
+async def ai_cmd(usr_txt):
     client = AsyncDedalus()
-
     completion = await client.chat.completions.parse(
         model="openai/gpt-5.2",
         messages=[{
@@ -32,15 +31,14 @@ async def main():
                 "Your role is to assist the user"
                 "The user may not use the exact language for each box or location"
                 "The user will request to move one object to one destination"
-                "Only one object 
+                "Only one object will be moved a time"
+                "An object will only move to one destination at a time"
+                "Each event must include a Source (red box/blue box/green box) and a Destination (lower left corner/lower right corner/upper left corner/upper right corner)"
+                f"The user's command is: {usr_txt}"
             )
         }],
         response_format=Command
     )
 
     parsed = completion.choices[0].message.parsed
-    for e in parsed.Command:
-        print(e.Source, e.Destination)
-
-if __name__ == "__main__":
-    asyncio.run(main())
+    return f"{parsed.Source}:{parsed.Destination}"
