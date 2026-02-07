@@ -1,5 +1,5 @@
 import cv2
-assert cv2.__version__[0] == '3' || cv2.__version__[0] == '4', 'The fisheye module requires opencv version >= 3.0.0'
+# assert cv2.__version__[0] == '3' || cv2.__version__[0] == '4', 'The fisheye module requires opencv version >= 3.0.0'
 
 import numpy as np
 import os
