@@ -64,7 +64,8 @@ def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixe
 
     # 4. Apply Perspective Warp to Rectify the Image
     # Determine the size of the output image (large enough to see the tag clearly)
-    output_size = (tag_size_pixels, tag_size_pixels)
+    # output_size = (tag_size_pixels, tag_size_pixels)
+    output_size = image.shape
     rectified_image = cv2.warpPerspective(image, H, output_size)
 
     # 5. Display or Save the Results
