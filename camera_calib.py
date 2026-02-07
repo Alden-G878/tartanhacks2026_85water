@@ -15,6 +15,7 @@ if not cap.isOpened():
 
 img_counter = 0
 while os.path.isfile(f"calib_img/opencv_frame_{img_counter}.png"):
+    print(f"calib_img/opencv_frame_{img_counter}.png already exists, incrementing img_counter")
     img_counter++
 
 while True:
