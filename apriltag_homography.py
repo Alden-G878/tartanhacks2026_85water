@@ -3,7 +3,7 @@ from pupil_apriltags import Detector
 import numpy as np
 import sys
 
-def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixels=100):
+def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixels=60):
     """
     Rectifies an image based on a detected AprilTag, effectively creating a 
     top-down view of the tag and its immediate surroundings.
@@ -71,7 +71,7 @@ def rectify_image_with_apriltag(image_path, tag_family='tag36h11', tag_size_pixe
     # 5. Display or Save the Results
     cv2.imshow("Original Image", image)
     cv2.imshow("Rectified Image", rectified_image)
-    cv2.imwrite("rectified_image.jpg", rectified_image)
+    cv2.imwrite("rectified_image.png", rectified_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
