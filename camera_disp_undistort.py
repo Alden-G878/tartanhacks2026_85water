@@ -12,7 +12,7 @@ img_width, img_height = 640, 480 # Must match the resolution used in calibration
 
 # You can adjust 'balance' from 0.0 (maximum zoom/crop) to 1.0 (keep all pixels, but might show black borders)
 balance = 0.5 
-new_K = cv2.fisheye.estimateNewCameraMatrixForUndistort(K, D, (img_width, img_height), np.eye(3), balance)
+new_K = cv2.fisheye.estimateNewCameraMatrixForUndistortRectify(K, D, (img_width, img_height), np.eye(3), balance)
 
 # --- 2. Setup Video Capture and Stream ---
 
