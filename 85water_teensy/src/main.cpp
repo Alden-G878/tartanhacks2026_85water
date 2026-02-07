@@ -33,12 +33,7 @@ void loop() {
   int x = Serial1.read();
   int snum = -1;
   int cmd = -1;
-  s0.write(0);
-  s1.write(0);
-  s2.write(0);
-  s3.write(0);
-  s4.write(0);
-  /*if(x!=-1) {
+  if(x!=-1) {
     switch(state) {
       case servo_num:
         snum = x;
@@ -69,5 +64,5 @@ void loop() {
         break;
       default:
     }
-  }*/
+  }
 }
