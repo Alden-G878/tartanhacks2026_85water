@@ -7,7 +7,7 @@ import numpy as np
 # or directly undistort with scaling/cropping options.
 # For simplicity here, we'll use a standard approach for the new matrix.
 # DIM=(640, 480)
-def capture_and_undestort(img_name):
+def capture_and_undistort(img_name):
     K=np.array([[459.50075535511127, 0.0, 315.4093020757232], [0.0, 456.5667192722284, 232.44968716323072], [0.0, 0.0, 1.0]])
     D=np.array([[-0.11675163361043045], [0.07398723179179927], [-0.01466585277138975], [-0.047624989531767185]])
     img_width, img_height = 640, 480 # Must match the resolution used in calibration
