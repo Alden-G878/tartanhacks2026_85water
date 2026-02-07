@@ -41,6 +41,11 @@ def find_src(red, green, blue):
         # Draw the bounding rectangle on the original image
         cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
         print(f"x: {x*0.86487}, y: {y*0.86487}")
+        cv2.putText(image, "Blue Box", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+        cv2.imshow("Detected Blue Box", image)
+        cv2.putText(image, "Blue Box", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+ 
+        cv2.waitKey(0)
         return ((x+w/2)*0.86487,(y+h/2)*0.86487)
         cv2.putText(image, "Blue Box", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
     else:

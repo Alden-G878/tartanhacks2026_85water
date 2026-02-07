@@ -2,6 +2,7 @@ import internal_speech
 import not_slop
 import camera_undistort_and_rectify
 import asyncio
+import detect_color
 
 # get user voice input
 usr_txt = internal_speech.get_speech()
@@ -33,7 +34,7 @@ if "blue" in ai_resp:
 # take pic, get good image
 camera_undistort_and_rectify.unr()
 # analyze for the colors
-
+x, y = detect_color.find_src(red, green, blue)
 
 # depending on the selected color and destination, have commands
 # move to src
