@@ -48,6 +48,7 @@ else:
             break
         if cv2.waitKey(1) & 0xFF == ord(' '):
             cv2.imwrite("img_udst.png", undistorted_frame)
+            print("saved frame to img_udst.png")
     # Release the capture and close windows
     cap.release()
     cv2.destroyAllWindows()
